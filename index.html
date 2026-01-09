@@ -233,40 +233,57 @@
     }
 
     /* METRICS */
+    .metrics-list {
+      margin-top: 1rem;
+      margin-bottom: 2rem;
+      padding-left: 1rem;
+    }
+    .metrics-list li {
+      margin-bottom: 0.9rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 1.12rem;
+    }
     .metrics-list li strong {
-      color: var(--primary);
+      color: #0f766e;
       font-size: 1.1rem;
-      background: linear-gradient(135deg, var(--primary-light), #ccfbf1);
-      padding: 0.3rem 0.8rem;
-      border-radius: 20px;
+      background: #e0f2f1;
+      padding: 0.32rem 0.85rem;
+      border-radius: 18px;
       font-weight: 600;
+      border: 0;
+      letter-spacing: 0.4px;
+      box-shadow: 0 2px 12px #a5f3fc38;
+      margin-right: 0.5rem;
+      min-width: 60px;
+      display: inline-block;
+      text-align: center;
     }
 
     /* CHARTS & SCREENSHOTS */
     .charts-row, .screenshot-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 2rem;
-  margin-top: 2.5rem;
-  align-items: start;
-}
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
+      margin-top: 2.5rem;
+      align-items: start;
+    }
 
-
-
-   .charts-row img, .screenshot-grid img {
-  width: 100%;
-  height: auto;
-  max-height: 360px; /* Slightly taller cap for charts */
-  display: block;
-  border-radius: 20px;
-  background: #f8faff;
-  border: 2px solid var(--border-light);
-  box-shadow: 0 12px 30px rgba(15,118,110,0.15);
-  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  cursor: pointer;
-}
-
-
+    .charts-row img, .screenshot-grid img {
+      width: 100%;
+      height: auto;
+      max-height: 360px;
+      display: block;
+      border-radius: 20px;
+      background: #f8faff;
+      border: 2px solid var(--border-light);
+      box-shadow: 0 12px 30px rgba(15,118,110,0.15);
+      transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      cursor: pointer;
+      object-fit: contain;
+      margin: 0 auto;
+    }
 
     .charts-row img:hover, .screenshot-grid img:hover {
       transform: translateY(-12px) scale(1.02);
@@ -275,37 +292,53 @@
     }
 
     /* RESPONSIVE */
-    
-@media (max-width: 768px) {
-  main {
-    padding: 2.5rem 1.5rem 4rem;
-  }
-  
-  .section-card {
-    padding: 2rem 1.8rem;
-    margin-top: 2.5rem;
-  }
-  
-  .hero {
-    min-height: 380px;
-  }
-  
-  .links {
-    flex-direction: column;
-  }
-  
-  .links a {
-    text-align: center;
-    padding: 1rem 2rem;
-  }
-  
-  /* Mobile grids - single column stacking */
-  .charts-row, .screenshot-grid {
-    grid-template-columns: 1fr !important;
-    gap: 1.5rem;
-  }
-}
 
+    @media (max-width: 768px) {
+      main {
+        padding: 2.5rem 1.5rem 4rem;
+      }
+
+      .section-card {
+        padding: 2rem 1.2rem;
+        margin-top: 2.1rem;
+      }
+
+      .hero {
+        min-height: 320px !important;
+      }
+
+      .hero-content {
+        padding: 2.2rem 0.6rem 2rem;
+      }
+
+      .links {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+
+      .links a {
+        text-align: center;
+        padding: 1rem 1.5rem;
+      }
+
+      /* Mobile grids - single column stacking */
+      .charts-row,
+      .screenshot-grid {
+        display: grid !important;
+        grid-template-columns: 1fr !important;
+        gap: 1.3rem !important;
+      }
+      .charts-row img, .screenshot-grid img {
+        max-width: 100%;
+        margin: 0 auto;
+        height: auto;
+        max-height: 300px;
+        border-radius: 16px;
+      }
+      .metrics-list li {
+        font-size: 1.07rem;
+      }
+    }
 
     /* IMPROVED FOOTER */
     footer {
@@ -345,6 +378,7 @@
       transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
       position: relative;
       overflow: hidden;
+      text-align: left;
     }
 
     .footer-card::before {
@@ -367,15 +401,15 @@
       font-size: 1.1rem;
       font-weight: 600;
       color: #ffffff;
-      margin-bottom: 1.2rem;
+      margin-bottom: 1.18rem;
       display: flex;
       align-items: center;
-      gap: 0.8rem;
+      gap: 0.7rem;
     }
 
     .footer-card h3 i {
       color: var(--primary-soft);
-      font-size: 1.3rem;
+      font-size: 1.24rem;
       width: 24px;
     }
 
@@ -413,22 +447,23 @@
     .footer-divider {
       height: 1px;
       background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-      margin: 2.5rem 2rem;
+      margin: 2.5rem 2rem 0 2rem;
     }
 
     .footer-bottom {
       background: rgba(15, 23, 42, 0.8);
       backdrop-filter: blur(20px);
       text-align: center;
-      padding: 1.5rem 2rem;
+      padding: 1.2rem 2rem 1.6rem 2rem;
       border-top: 1px solid rgba(255,255,255,0.1);
     }
 
     .footer-bottom p {
       color: #94a3b8;
-      font-size: 0.9rem;
+      font-size: 0.91rem;
       font-weight: 400;
       margin: 0;
+      word-break: break-word;
     }
 
     .social-links {
@@ -442,7 +477,7 @@
       width: 44px;
       height: 44px;
       border-radius: 12px;
-      background: rgba(255,255,255,0.1);
+      background: rgba(255,255,255,0.10);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -464,11 +499,31 @@
       .footer-content {
         grid-template-columns: 1fr;
         gap: 2rem;
-        padding: 2.5rem 1.5rem 2rem;
+        padding: 2.2rem 1rem 1.6rem 1rem;
       }
-      
+
       .footer-card {
-        padding: 1.8rem;
+        padding: 1.4rem 0.7rem;
+        text-align: center;
+      }
+      .footer-card h3 {
+        justify-content: center;
+      }
+      .footer-card a {
+        justify-content: center;
+        font-size: 1rem;
+      }
+    }
+
+    /* FadeUp Animation for section entry */
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(34px) scale(0.98);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0px) scale(1);
       }
     }
   </style>
@@ -506,7 +561,6 @@
       <div class="links">
         <a href="https://github.com/akashrajhub/nyc-taxi-fare-prediction-automatidata" target="_blank">GitHub Repository</a>
         <a href="https://public.tableau.com/views/AutomatidataNYCTaxifarePrediction/ModelPerformanceDashboard" target="_blank">Tableau Dashboard</a>
-        
         <a href="https://drive.google.com/file/d/1oS44fyXrobVrAjG7LYzrzgPeoMTywxUx/view" target="_blank">Power BI File</a>
         <a href="https://drive.google.com/drive/folders/1rkqSPvNp5GiqdT-JNXodF7OXztCva-7k" target="_blank">All Reports</a>
         <a href="https://drive.google.com/file/d/1CTNShtEWoSN6I9NzC2WiOW4F8gD5K7v6/view" target="_blank">Case Study</a>
@@ -530,13 +584,12 @@
         <li>OLS regression used only as diagnostic validation.</li>
       </ul>
 
-      <h3 style="margin-top:1.8rem; font-size:1.2rem; color:var(--text-dark);">Model Performance</h3>
+      <h3 style="margin-top:1.7rem; font-size:1.18rem; color:#0f172a;">Model Performance</h3>
       <ul class="metrics-list">
         <li><strong>R²</strong>: 0.974</li>
         <li><strong>MAE</strong>: 0.43</li>
         <li><strong>RMSE</strong>: 1.71</li>
       </ul>
-
       <div class="charts-row">
         <img src="Model/Actual_vs_Predicted.png" alt="Actual vs Predicted">
         <img src="Model/model_performance_comparison.png" alt="Model Performance Comparison">
@@ -554,7 +607,6 @@
         <img src="Dashboard/Power BI/Screenshots/Dashboard.png" alt="Dashboard">
         <img src="Dashboard/Power BI/Screenshots/Deep Dive.png" alt="Deep Dive">
       </div>
-
       <div class="screenshot-grid">
         <img src="Dashboard/Power BI/Screenshots/Key Insights.png" alt="Key Insights">
         <img src="Dashboard/Power BI/Screenshots/Tooltip.png" alt="Tooltip">
@@ -628,7 +680,7 @@
 
       <div class="footer-card">
         <h3><i class="fas fa-link"></i> Quick Links</h3>
-        <a href=https://akashrajhub.github.io/Home-Page/><i class="fas fa-home"></i> Portfolio Home</a>
+        <a href="https://akashrajhub.github.io/"><i class="fas fa-home"></i> Portfolio Home</a>
         <a href="https://github.com/akashrajhub" target="_blank"><i class="fab fa-github"></i> GitHub</a>
         <a href="https://www.linkedin.com/in/akash-raj-profile/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
       </div>
@@ -691,7 +743,3 @@
   </script>
 </body>
 </html>
-
-
-
-
